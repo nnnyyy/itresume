@@ -3,19 +3,26 @@
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import HelloWorld from '@/components/HelloWorld.vue'
 import {useAuth} from '@/stores/auth'
+import axios from '@/plugins/axios'
+import { onMounted } from 'vue';
 const auth = useAuth();
+
+onMounted( async ()=> {
+  const ret = await axios.post('/api/init')
+  console.log(ret)
+})
+
+const onBtnTest = async ()=> {
+  const ret = await axios.post('/api/test')
+  console.log(ret)
+}
+
 </script>
 
 <template>
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      {{auth.state.userinfo}}
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+    <button @click="onBtnTest">테스트 버튼</button>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style scoped>
