@@ -8,9 +8,10 @@
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview"
   },
-  "dependencies": {    
-    "axios": "^0.27.2",    
+  "dependencies": {
+    "axios": "^0.27.2",
     "pinia": "^2.0.16",
+    "sass": "^1.53.0",
     "vue": "^3.2.37"
   },
   "devDependencies": {
