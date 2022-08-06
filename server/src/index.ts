@@ -1,4 +1,15 @@
+const tsConfigPaths = require('tsconfig-paths')
+tsConfigPaths.register({
+    baseUrl: './dist/',
+    paths: {
+        '@modules/*': ['./modules/*']
+    }
+})
+
 import express from 'express'
+import {test} from '@modules/test'
+console.log(test)
+
 const app = express();
 
 app.post('/api/init', (req,res)=> {
